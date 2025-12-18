@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Chamado - Sistema de Assistência Técnica</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-motorcycle"></i>
+                <span>Assistência Técnica</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Abrir Chamado</a>
+                <a href="consultar.html" class="active">Consultar Status</a>
+                <a href="admin.html">Área Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h1><i class="fas fa-search"></i> Consultar Status do Chamado</h1>
+            <p>Digite o número do seu protocolo para acompanhar o andamento</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="card search-card">
+            <div class="card-body">
+                <div class="search-box">
+                    <input type="text" id="searchTicket" placeholder="Digite o número do protocolo (ex: #12345)" maxlength="10">
+                    <button onclick="buscarChamado()" class="btn btn-primary">
+                        <i class="fas fa-search"></i> Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="resultadoArea" style="display: none;">
+            <div class="card">
+                <div class="card-header">
+                    <h2><i class="fas fa-ticket-alt"></i> Detalhes do Chamado</h2>
+                </div>
+                <div class="card-body">
+                    <div class="chamado-header">
+                        <div class="header-item">
+                            <span class="label">Protocolo:</span>
+                            <span class="value" id="protocoloNum"></span>
+                        </div>
+                        <div class="header-item">
+                            <span class="label">Status:</span>
+                            <span class="status-badge" id="statusBadge"></span>
+                        </div>
+                        <div class="header-item">
+                            <span class="label">Data de Abertura:</span>
+                            <span class="value" id="dataAbertura"></span>
+                        </div>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <i class="fas fa-user"></i>
+                            <div>
+                                <label>Cliente:</label>
+                                <p id="clienteNome"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <label>E-mail:</label>
+                                <p id="clienteEmail"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <label>Telefone:</label>
+                                <p id="clienteTelefone"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-calendar"></i>
+                            <div>
+                                <label>Data de Compra:</label>
+                                <p id="dataCompraInfo"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-motorcycle"></i>
+                            <div>
+                                <label>Modelo:</label>
+                                <p id="modeloInfo"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-palette"></i>
+                            <div>
+                                <label>Cor:</label>
+                                <p id="corInfo"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="problema-section">
+                        <h3><i class="fas fa-wrench"></i> Problema Relatado</h3>
+                        <div class="problema-content">
+                            <p><strong>Tipo:</strong> <span id="tipoProblemaInfo"></span></p>
+                            <p><strong>Descrição:</strong></p>
+                            <p id="descricaoInfo" class="descricao-text"></p>
+                        </div>
+                    </div>
+
+                    <div id="diagnosticoSection" style="display: none;">
+                        <h3><i class="fas fa-stethoscope"></i> Diagnóstico Técnico</h3>
+                        <div class="diagnostico-content">
+                            <p id="diagnosticoInfo"></p>
+                        </div>
+                    </div>
+
+                    <div id="garantiaSection" style="display: none;">
+                        <h3><i class="fas fa-shield-alt"></i> Informações de Garantia</h3>
+                        <div class="garantia-content">
+                            <p id="garantiaInfo"></p>
+                        </div>
+                    </div>
+
+                    <div id="orcamentoSection" style="display: none;">
+                        <h3><i class="fas fa-dollar-sign"></i> Orçamento</h3>
+                        <div class="orcamento-content">
+                            <p id="orcamentoInfo"></p>
+                        </div>
+                    </div>
+
+                    <div id="pecasSection" style="display: none;">
+                        <h3><i class="fas fa-cogs"></i> Peças Utilizadas</h3>
+                        <div class="pecas-content">
+                            <p id="pecasInfo"></p>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <h3><i class="fas fa-history"></i> Histórico de Atualizações</h3>
+                        <div id="timelineContent" class="timeline-content">
+                            <!-- Timeline items serão adicionados dinamicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="notFoundArea" style="display: none;">
+            <div class="card error-card">
+                <div class="error-content">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <h3>Chamado não encontrado</h3>
+                    <p>Verifique se o número do protocolo está correto e tente novamente.</p>
+                    <button onclick="location.reload()" class="btn btn-primary">Tentar Novamente</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="help-section">
+            <h3><i class="fas fa-question-circle"></i> Precisa de Ajuda?</h3>
+            <div class="help-cards">
+                <div class="help-card">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h4>Onde encontro meu protocolo?</h4>
+                    <p>O número do protocolo foi enviado por e-mail quando você abriu o chamado.</p>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-clock"></i>
+                    <h4>Tempo de resposta</h4>
+                    <p>Nossa equipe responde em até 24 horas úteis após a abertura do chamado.</p>
+                </div>
+                <div class="help-card">
+                    <i class="fas fa-headset"></i>
+                    <h4>Suporte direto</h4>
+                    <p>Em caso de urgência, entre em contato pelo telefone ou WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Assistência Técnica Scooters Elétricas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/consultar.js"></script>
+</body>
+</html>

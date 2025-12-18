@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Chamados Técnicos - Scooters Elétricas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-motorcycle"></i>
+                <span>Assistência Técnica</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Abrir Chamado</a>
+                <a href="consultar.html">Consultar Status</a>
+                <a href="admin.html">Área Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="container">
+            <h1><i class="fas fa-tools"></i> Assistência Técnica Especializada</h1>
+            <p>Resolva problemas da sua scooter elétrica de forma rápida e eficiente</p>
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="card form-card">
+            <div class="card-header">
+                <h2><i class="fas fa-plus-circle"></i> Abrir Novo Chamado</h2>
+                <p>Preencha os dados abaixo para registrar seu problema</p>
+            </div>
+            <div class="card-body">
+                <form id="chamadoForm">
+                    <div class="form-section">
+                        <h3><i class="fas fa-user"></i> Dados do Cliente</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nome">Nome Completo *</label>
+                                <input type="text" id="nome" name="nome" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-mail *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefone">Telefone/WhatsApp *</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="dataCompra">Data de Compra *</label>
+                                <input type="date" id="dataCompra" name="dataCompra" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-motorcycle"></i> Dados da Scooter</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="modelo">Modelo *</label>
+                                <select id="modelo" name="modelo" required>
+                                    <option value="">Selecione o modelo</option>
+                                    <option value="Modelo A - HE-6">Modelo A - HE-6</option>
+                                    <option value="Modelo B - BE-4">Modelo B - BE-4</option>
+                                    <option value="Modelo C - JE-7">Modelo C - JE-7</option>
+                                    <option value="Modelo D - JE-8">Modelo D - JE-8</option>
+                                    <option value="Modelo E - JE-2">Modelo E - JE-2</option>
+                                    <option value="Modelo F - XE-11">Modelo F - XE-11</option>
+                                    <option value="Modelo G - JE-20">Modelo G - JE-20</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="cor">Cor *</label>
+                                <select id="cor" name="cor" required>
+                                    <option value="">Selecione a cor</option>
+                                    <option value="Preto">Preto</option>
+                                    <option value="Branco">Branco</option>
+                                    <option value="Azul">Azul</option>
+                                    <option value="Vermelho">Vermelho</option>
+                                    <option value="Verde">Verde</option>
+                                    <option value="Cinza">Cinza</option>
+                                    <option value="Carbono">Carbono</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="numeroSerie">Número de Série (opcional)</label>
+                            <input type="text" id="numeroSerie" name="numeroSerie" placeholder="Ex: SC2024-00001">
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-wrench"></i> Descrição do Problema</h3>
+                        <div class="form-group">
+                            <label for="tipoProblema">Tipo de Problema *</label>
+                            <select id="tipoProblema" name="tipoProblema" required>
+                                <option value="">Selecione o tipo</option>
+                                <option value="Bateria não carrega">Bateria não carrega</option>
+                                <option value="Motor não funciona">Motor não funciona</option>
+                                <option value="Freios com problema">Freios com problema</option>
+                                <option value="Pneu furado/desgastado">Pneu furado/desgastado</option>
+                                <option value="Painel/Display com defeito">Painel/Display com defeito</option>
+                                <option value="Problema elétrico">Problema elétrico</option>
+                                <option value="Problema mecânico">Problema mecânico</option>
+                                <option value="Montagem incorreta">Montagem incorreta</option>
+                                <option value="Outros">Outros</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="descricao">Descreva detalhadamente o problema *</label>
+                            <textarea id="descricao" name="descricao" rows="6" required placeholder="Descreva o que está acontecendo, quando começou, se tem algum ruído, etc."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Enviar Chamado
+                        </button>
+                        <button type="reset" class="btn btn-secondary">
+                            <i class="fas fa-redo"></i> Limpar Formulário
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="info-cards">
+            <div class="info-card">
+                <i class="fas fa-clock"></i>
+                <h3>Atendimento Rápido</h3>
+                <p>Resposta em até 24 horas úteis</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Garantia Assegurada</h3>
+                <p>Cobertura completa conforme política</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Técnicos Especializados</h3>
+                <p>Equipe treinada e certificada</p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Assistência Técnica Scooters Elétricas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header success">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Chamado Aberto com Sucesso!</h3>
+            <p>Seu número de protocolo é:</p>
+            <div class="ticket-number" id="ticketNumber"></div>
+            <p class="modal-info">Guarde este número para consultar o status do seu chamado.</p>
+            <p class="modal-info">Você receberá um e-mail de confirmação em breve.</p>
+            <button onclick="closeModal()" class="btn btn-primary">Entendi</button>
+            <a href="consultar.html" class="btn btn-secondary">Consultar Status</a>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/chamados.js"></script>
+</body>
+</html>
