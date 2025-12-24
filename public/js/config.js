@@ -5,12 +5,12 @@ import { getFirestore, collection, addDoc, getDocs, query, where, doc, updateDoc
 
 // A configuração do seu aplicativo da web do Firebase
 const firebaseConfig = {
-  apiKey: "AIzaSyBFOlyvuSYLpZsKPfmYhFNn_RhFSoNWv3I",
-  authDomain: "assistencia-ecoviva-3819a.firebaseapp.com",
-  projectId: "assistencia-ecoviva-3819a",
-  storageBucket: "assistencia-ecoviva-3819a.firebasestorage.app",
-  messagingSenderId: "856788657956",
-  appId: "1:856788657956:web:37c2d1501719acc31db5b1"
+  apiKey: "AIzaSyBrJgrmI01SpclsBLmkLft4DbzKI2gec_A",
+  authDomain: "assistecoviva-34968794-f4eed.firebaseapp.com",
+  projectId: "assistecoviva-34968794-f4eed",
+  storageBucket: "assistecoviva-34968794-f4eed.firebasestorage.app",
+  messagingSenderId: "452863874754",
+  appId: "1:452863874754:web:473f2a6459075e3fcb0d5b"
 };
 
 // Inicializa o Firebase
