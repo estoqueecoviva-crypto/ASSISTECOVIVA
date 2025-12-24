@@ -1,0 +1,104 @@
+/* ===================================
+// ESTILOS DE IMPRESSÃO
+// =================================== */
+
+@media print {
+    /* Elementos que devem ser escondidos na impressão */
+    .navbar, 
+    .header, 
+    .form-section, 
+    .footer, 
+    .btn, 
+    .status-select, 
+    .no-print {
+        display: none !important;
+    }
+
+    /* Estilos gerais para o corpo da página de impressão */
+    body {
+        font-family: 'Garamond', serif;
+        background-color: #fff;
+        color: #000;
+        font-size: 12pt;
+    }
+
+    /* Garante que o conteúdo principal ocupe toda a largura */
+    .container, 
+    .chamados-container,
+    .consulta-result {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+    }
+
+    /* Estilos da tabela para impressão */
+    .chamados-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 10pt;
+    }
+
+    .chamados-table th, .chamados-table td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .chamados-table thead {
+        display: table-header-group; /* Garante que o cabeçalho repita em todas as páginas */
+    }
+
+    .chamados-table th {
+        background-color: #f2f2f2;
+        font-weight: bold;
+    }
+
+    /* Exibe os detalhes do chamado de forma limpa */
+    .chamados-table td[data-label]::before {
+        content: attr(data-label) ": ";
+        font-weight: bold;
+    }
+
+    .chamados-table td, .chamados-table tr {
+        display: table-cell;
+        width: auto;
+    }
+
+    .chamados-table tr {
+        page-break-inside: avoid;
+    }
+
+    /* Estilo para os badges de status na impressão */
+    .status-badge {
+        border: 1px solid #000;
+        padding: 2px 6px;
+        border-radius: 0;
+        color: #000;
+        background-color: #fff !important;
+    }
+
+    /* Estilos específicos para a página de consulta */
+    .consulta-result h3 {
+        font-size: 16pt;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    #detalhes-chamado p, #historico-chamado .historico-item {
+        font-size: 12pt;
+    }
+
+    /* Remove a necessidade de links na impressão */
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    /* Garante que o resultado da consulta seja visível */
+    .consulta-result {
+        display: block !important;
+    }
+}

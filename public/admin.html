@@ -48,7 +48,7 @@
                 </div>
                 <div class="nav-links">
                     <span class="user-info"><i class="fas fa-user-circle"></i> <span id="userEmail"></span></span>
-                    <button onclick="logout()" class="btn-logout">
+                    <button id="logoutButton" class="btn-logout">
                         <i class="fas fa-sign-out-alt"></i> Sair
                     </button>
                 </div>
@@ -102,12 +102,12 @@
                     <div class="filters-row">
                         <div class="search-box">
                             <input type="text" id="searchInput" placeholder="Buscar por protocolo, nome ou modelo...">
-                            <button onclick="filtrarChamados()" class="btn btn-primary">
+                            <button id="searchButton" class="btn btn-primary">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
                         <div class="filter-group">
-                            <select id="filterStatus" onchange="filtrarChamados()">
+                            <select id="filterStatus">
                                 <option value="">Todos os status</option>
                                 <option value="Novo">Novo</option>
                                 <option value="Em Análise">Em Análise</option>
@@ -115,7 +115,7 @@
                                 <option value="Em Reparo">Em Reparo</option>
                                 <option value="Concluído">Concluído</option>
                             </select>
-                            <select id="filterModelo" onchange="filtrarChamados()">
+                            <select id="filterModelo">
                                 <option value="">Todos os modelos</option>
                                 <option value="Modelo A - Urban">Modelo A - Urban</option>
                                 <option value="Modelo B - Sport">Modelo B - Sport</option>
@@ -125,7 +125,7 @@
                                 <option value="Modelo F - Premium">Modelo F - Premium</option>
                                 <option value="Modelo G - Elite">Modelo G - Elite</option>
                             </select>
-                            <button onclick="limparFiltros()" class="btn btn-secondary">
+                            <button id="clearFiltersButton" class="btn btn-secondary">
                                 <i class="fas fa-times"></i> Limpar
                             </button>
                         </div>
@@ -137,7 +137,7 @@
             <div class="card">
                 <div class="card-header">
                     <h2><i class="fas fa-list"></i> Lista de Chamados</h2>
-                    <button onclick="atualizarLista()" class="btn btn-secondary">
+                    <button id="updateListButton" class="btn btn-secondary">
                         <i class="fas fa-sync-alt"></i> Atualizar
                     </button>
                 </div>
@@ -175,7 +175,7 @@
         <div class="modal-content modal-large">
             <div class="modal-header-bar">
                 <h3><i class="fas fa-ticket-alt"></i> Detalhes do Chamado <span id="modalProtocolo"></span></h3>
-                <button onclick="fecharModal()" class="btn-close">&times;</button>
+                <button id="closeModalButton" class="btn-close">&times;</button>
             </div>
             <div class="modal-body">
                 <div class="detalhes-grid">
@@ -277,7 +277,7 @@
                         <button type="submit" class="btn btn-primary">
                             <i class="fas fa-save"></i> Salvar Alterações
                         </button>
-                        <button type="button" onclick="fecharModal()" class="btn btn-secondary">
+                        <button type="button" id="cancelButton" class="btn btn-secondary">
                             <i class="fas fa-times"></i> Cancelar
                         </button>
                     </div>
@@ -286,10 +286,7 @@
         </div>
     </div>
 
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
-    <script src="js/config.js"></script>
-    <script src="js/admin.js"></script>
+    <!-- CORREÇÃO: Carrega o script principal como um módulo. O navegador resolverá as importações (como o config.js) automaticamente. -->
+    <script type="module" src="js/admin.js"></script>
 </body>
 </html>
