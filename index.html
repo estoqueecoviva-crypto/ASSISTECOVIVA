@@ -106,6 +106,7 @@
                                 <option value="">Selecione o tipo</option>
                                 <option value="Bateria não carrega">Bateria não carrega</option>
                                 <option value="Motor não funciona">Motor não funciona</option>
+
                                 <option value="Freios com problema">Freios com problema</option>
                                 <option value="Pneu furado/desgastado">Pneu furado/desgastado</option>
                                 <option value="Painel/Display com defeito">Painel/Display com defeito</option>
@@ -158,6 +159,10 @@
         </div>
     </footer>
 
+    <a href="https://wa.me/554791354655?text=Olá,%20gostaria%20de%20mais%20informações" class="whatsapp-button" target="_blank">
+        <img src="whatsapp.png" alt="WhatsApp">
+    </a>
+
     <div id="successModal" class="modal">
         <div class="modal-content">
             <div class="modal-header success">
@@ -173,7 +178,23 @@
         </div>
     </div>
 
-    <!-- CORREÇÃO: Carrega o script principal como um módulo. O navegador resolverá as importações (como o config.js) automaticamente. -->
-    <script type="module" src="js/chamados.js"></script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    
+    <!-- EmailJS SDK (para notificações por e-mail) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Scripts do Sistema -->
+    <script src="js/config.js"></script>
+    <script src="js/email-notifications.js"></script>
+    <script src="js/chamados.js"></script>
+    
+    <!-- Inicializar EmailJS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            inicializarEmailJS();
+        });
+    </script>
 </body>
 </html>

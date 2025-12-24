@@ -35,10 +35,19 @@
             <div class="card-body">
                 <div class="search-box">
                     <input type="text" id="searchTicket" placeholder="Digite o número do protocolo (ex: #12345)" maxlength="10">
-                    <button id="searchButton" class="btn btn-primary">
+                    <button class="btn btn-primary">
                         <i class="fas fa-search"></i> Buscar
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- DIV DE ERRO QUE ESTAVA FALTANDO -->
+        <div id="errorArea" class="card error-card" style="display: none; background-color: #fff2f2; border-color: #ffcccc;">
+            <div class="error-content" style="padding: 1rem; text-align: center; color: #d8000c;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                <h3 style="margin: 0.5rem 0;">Ocorreu um Erro</h3>
+                <p id="errorMessage" style="margin: 0;"></p>
             </div>
         </div>
 
@@ -193,8 +202,14 @@
             <p>&copy; 2024 Assistência Técnica Scooters Elétricas. Todos os direitos reservados.</p>
         </div>
     </footer>
+    
+    <a href="https://wa.me/554791354655?text=Olá,%20gostaria%20de%20mais%20informações" class="whatsapp-button" target="_blank">
+        <img src="whatsapp.png" alt="WhatsApp">
+    </a>
 
-    <!-- CORREÇÃO: Carrega o script principal como um módulo. O navegador resolverá as importações (como o config.js) automaticamente. -->
-    <script type="module" src="js/consultar.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/consultar.js"></script>
 </body>
 </html>
