@@ -2,13 +2,6 @@
 // CONFIGURAÇÃO DO FIREBASE
 // ===================================
 
-// ⚠️ IMPORTANTE: Substitua as configurações abaixo pelas suas próprias credenciais do Firebase
-// Para obter suas credenciais:
-// 1. Acesse https://console.firebase.google.com/
-// 2. Crie um novo projeto ou selecione um existente
-// 3. Vá em Configurações do Projeto > Seus aplicativos > Adicionar app > Web
-// 4. Copie as configurações e cole aqui
-
 const firebaseConfig = {
     apiKey: "AIzaSyBrJgrmI01SpclsBLmkLft4DbzKI2gec_A",
     authDomain: "assistecoviva-34968794-f4eed.firebaseapp.com",
